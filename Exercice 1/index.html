@@ -6,20 +6,14 @@
   </head>
   <body>
     <div id="app">
-      <label>Votre nom :</label>
-      <!-- Champ texte -->
-      <input v-model="username" />
-      <!-- Case à cocher -->
-     <!-- <input type="checkbox" v-model="accepted" />
-        Liste déroulante 
-      <select v-model="selectedCountry">
-        <option value="fr">France</option>
-        <option value="ch">Suisse</option>
-        <option value="be">Belgique</option>
-      </select>
-       Zone de texte 
-      <textarea v-model="description"></textarea> --> 
-      <p>Bonjour {{ username }} !</p>
+      <p>{{ message }}</p>
+      <button @click="sayHello">Cliquez ici</button>
+      <p>Nombre de clics : {{ clicks }}</p>
+      <button @click="increment">Cliquez-moi !</button>
+      <p>Ajouter un produit :</p>
+      <button @click="addProduct('Chaussettes')">
+        Ajouter les chaussettes
+      </button>
     </div>
     <!-- Chargement de Vue.js 3 depuis le CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -28,8 +22,20 @@
       createApp({
         data() {
           return {
-            username: "",
+            message: "Bonjour !",
+            clicks: 0,
           };
+        },
+        methods: {
+          sayHello() {
+            alert("Bonjour et bienvenue !");
+          },
+          increment() {
+            this.clicks++;
+          },
+          addProduct(name) {
+            alert("Produit ajouté : " + name);
+          },
         },
       }).mount("#app");
     </script>
