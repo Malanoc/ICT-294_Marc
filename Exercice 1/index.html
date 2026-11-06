@@ -6,17 +6,19 @@
   </head>
   <body>
     <div id="app">
-      <p v-if="isAvailable">Produit disponible !</p>
-      <p v-else>Produit indisponible.</p>
+      <h2>Nos produits</h2>
+      <ul>
+        <li v-for="product in products">{{ product }}</li>
+      </ul>
     </div>
     <!-- Chargement de Vue.js 3 depuis le CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-      const { createApp } = Vue;
+      const { createApp } = Vue
       createApp({
         data() {
           return {
-            isAvailable: true,
+            products: ["Chaussettes", "Chaussures", "T-shirt", "Pull"],
           };
         },
       }).mount("#app");
