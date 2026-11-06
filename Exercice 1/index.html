@@ -6,19 +6,29 @@
   </head>
   <body>
     <div id="app">
-      <h2>Nos produits</h2>
-      <ul>
-        <li v-for="product in products">{{ product }}</li>
-      </ul>
+      <label>Votre nom :</label>
+      <!-- Champ texte -->
+      <input v-model="username" />
+      <!-- Case à cocher -->
+     <!-- <input type="checkbox" v-model="accepted" />
+        Liste déroulante 
+      <select v-model="selectedCountry">
+        <option value="fr">France</option>
+        <option value="ch">Suisse</option>
+        <option value="be">Belgique</option>
+      </select>
+       Zone de texte 
+      <textarea v-model="description"></textarea> --> 
+      <p>Bonjour {{ username }} !</p>
     </div>
     <!-- Chargement de Vue.js 3 depuis le CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-      const { createApp } = Vue
+      const { createApp } = Vue;
       createApp({
         data() {
           return {
-            products: ["Chaussettes", "Chaussures", "T-shirt", "Pull"],
+            username: "",
           };
         },
       }).mount("#app");
