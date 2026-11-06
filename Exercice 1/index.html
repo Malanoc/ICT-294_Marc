@@ -6,9 +6,8 @@
   </head>
   <body>
     <div id="app">
-      <p>Prix unitaire : {{ price }} €</p>
-      <p>Quantité : {{ quantity }}</p>
-      <h3>Total : {{ totalPrice }} €</h3>
+      <p v-if="isAvailable">Produit disponible !</p>
+      <p v-else>Produit indisponible.</p>
     </div>
     <!-- Chargement de Vue.js 3 depuis le CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,14 +16,8 @@
       createApp({
         data() {
           return {
-            price: 12,
-            quantity: 2,
+            isAvailable: true,
           };
-        },
-        computed: {
-          totalPrice() {
-            return this.price * this.quantity;
-          },
         },
       }).mount("#app");
     </script>
